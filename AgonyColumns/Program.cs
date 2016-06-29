@@ -120,6 +120,7 @@
             var nonce = (new EransOAuth.OAuthBase()).GenerateNonce();
             var timestamp = (new EransOAuth.OAuthBase()).GenerateTimeStamp();
 
+            var status = "This is some text which exceeds 140 characters. This is used for testing to prevent actually sending the tweet, while confirming that the OAuth solution is working and all is as it should be.";
 
             Console.WriteLine(MakeTweet(consumKey, consumSecret, userToken, userSecret, nonce, timestamp, status));
             
