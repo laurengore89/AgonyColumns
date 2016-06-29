@@ -15,6 +15,7 @@
     using System.Web;
     
     using EransOAuth;
+    using System.Configuration;
 
     internal class Program
     {
@@ -110,11 +111,11 @@
 
         static void Main(string[] args)
         {
-            var consumKey = "dummy";
-            var consumSecret = "dummy";
+            var consumKey = ConfigurationManager.AppSettings["consumKey"];
+            var consumSecret = ConfigurationManager.AppSettings["consumSecret"];
 
-            var userToken = "dummy";
-            var userSecret = "dummy";
+            var userToken = ConfigurationManager.AppSettings["userToken"];
+            var userSecret = ConfigurationManager.AppSettings["userSecret"];
 
             var nonce = (new EransOAuth.OAuthBase()).GenerateNonce();
             var timestamp = (new EransOAuth.OAuthBase()).GenerateTimeStamp();
