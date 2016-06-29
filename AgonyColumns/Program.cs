@@ -120,7 +120,6 @@
             var nonce = (new EransOAuth.OAuthBase()).GenerateNonce();
             var timestamp = (new EransOAuth.OAuthBase()).GenerateTimeStamp();
 
-            var status = "testTweetText";
 
             Console.WriteLine(MakeTweet(consumKey, consumSecret, userToken, userSecret, nonce, timestamp, status));
             
