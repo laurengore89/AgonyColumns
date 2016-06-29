@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AgonyColumns/obj/Release/AspnetCompileMerge
+/AgonyColumns/obj/Release/Package/PackageTmp
+*.suo
+*.cache
+/AgonyColumns/bin/HolmesMVC.dll
+/AgonyColumns/bin/HolmesMVC.pdb
+/AgonyColumns/bin/Debug/*
+/AgonyColumns/obj/Debug/*
+
+
+# Project-specific ignores
+
