@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgonyColumns", "AgonyColumns\AgonyColumns.csproj", "{08F01D06-A896-4583-96B6-EEC48B967028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgonyColumnsTest", "AgonyColumnsTest\AgonyColumnsTest.csproj", "{2F579664-3153-4860-A1FE-D420926A4AA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,8 +17,15 @@ Global
 		{08F01D06-A896-4583-96B6-EEC48B967028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08F01D06-A896-4583-96B6-EEC48B967028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08F01D06-A896-4583-96B6-EEC48B967028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F579664-3153-4860-A1FE-D420926A4AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F579664-3153-4860-A1FE-D420926A4AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F579664-3153-4860-A1FE-D420926A4AA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F579664-3153-4860-A1FE-D420926A4AA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51DA6594-E155-41C1-847F-1A8F3FF6A9D7}
 	EndGlobalSection
 EndGlobal

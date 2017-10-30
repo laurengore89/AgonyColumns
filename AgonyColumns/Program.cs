@@ -2,22 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Globalization;
-    using System.IO;
-    using System.Linq;
-    using System.Net;
     using System.Net.Http;
     using System.Net.Http.Headers;
-    using System.Security.Cryptography;
-    using System.Text;
-    using System.Threading;
     using System.Threading.Tasks;
-    using System.Web;
-    
-    using EransOAuth;
     using System.Configuration;
 
-    internal class Program
+	public class Program
     {
         static async Task<string> MakeTweetCall(string baseUrl, string authHeader, string status)
         {
@@ -34,11 +24,12 @@
 
                 client.DefaultRequestHeaders.Authorization = authHeaders;
 
-                var response = await client.PostAsync(baseUrl, content);
+                var responseRaw = await client.PostAsync(baseUrl, content);
 
-                var responseString = await response.Content.ReadAsStringAsync();
+                var responseString = await responseRaw.Content.ReadAsStringAsync();
 
-                return responseString;
+				var processor = new ResponseProcessor();
+				return processor.ProcessResponseString(responseString);
             }
         }
 
@@ -52,8 +43,11 @@
                         
             string normedUrl;
             string normedParams;
-            
-            Console.WriteLine(siggie.GenerateSignatureBase(baseUrlUri,consumKey,userToken,userSecret,method,timestamp,nonce,"HMAC-SHA1",out normedUrl,out normedParams));
+
+			// Console.WriteLine(siggie.GenerateSignatureBase(baseUrlUri,consumKey,userToken,userSecret,method,timestamp,nonce,"HMAC-SHA1",out normedUrl,out normedParams));
+
+			Console.WriteLine("Sending tweet:");
+			Console.WriteLine(status);
 
             var signature = siggie.GenerateSignature(baseUrlUri, consumKey, consumSecret, userToken, userSecret, method, timestamp, nonce, out normedUrl, out normedParams);
 
@@ -100,8 +94,8 @@
             dst += '"' + "1.0" + '"';
 
             Console.WriteLine();
-            Console.WriteLine(dst);
-            Console.WriteLine();
+            //Console.WriteLine(dst);
+            //Console.WriteLine();
 
             var outStr = MakeTweetCall(baseUrl, dst, status);
             outStr.Wait();
@@ -120,7 +114,8 @@
             var nonce = (new EransOAuth.OAuthBase()).GenerateNonce();
             var timestamp = (new EransOAuth.OAuthBase()).GenerateTimeStamp();
 
-            var status = "This is some text which exceeds 140 characters. This is used for testing to prevent actually sending the tweet, while confirming that the OAuth solution is working and all is as it should be.";
+			var status = "This is some text which exceeds 140 characters. This is used for testing to prevent actually sending the tweet, while confirming that the OAuth solution is working and all is as it should be.";
+			//var status = "Ignore this, still testing.";
 
             Console.WriteLine(MakeTweet(consumKey, consumSecret, userToken, userSecret, nonce, timestamp, status));
             
