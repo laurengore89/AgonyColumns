@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
@@ -16,3 +16,6 @@
 # Project-specific ignores
 
 *.config
+AgonyColumnsTest/bin/
+AgonyColumnsTest/obj/
+npm-debug.log
