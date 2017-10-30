@@ -31,6 +31,12 @@
 			Console.WriteLine();
 
 			Console.WriteLine(TweetSender.SendTweet(consumKey, consumSecret, userToken, userSecret, status));
+
+			if (args.Length == 0)
+			{
+				// we're probably testing from inside Visual Studio
+				Console.ReadLine();
+			}
         }
     }
 }
